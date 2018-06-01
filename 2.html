@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+
+</head>
+<body>
+<input type="file" size="20" autocomplete="off" id="upload_img" name="Uploadfile">
+<script>
+    // $(document).click(function () {
+    //     var MyTest = document.getElementById("upload_img").files[0];
+    //     var reader = new FileReader();
+    //     console.info(MyTest)
+    // })
+
+    function getCookie(cname){
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+        }
+        return "";
+    }
+    getCookie("d")
+    console.log(getCookie("d"))
+    // reader.readAsDataURL(MyTest);
+    // reader.onload = function(theFile) {
+    //     // var image = new Image();
+    //     // image.src = theFile.target.result;
+    //     //
+    //     // image.onload = function() {
+    //     //     alert("图片的宽度为"+this.width+",长度为"+this.height);
+    //     // };
+    // };
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<script>
+//    http://192.168.0.219:8586/vbcExplorer/tx/getTxList
+//url: "http://vbcExplorer.com/tx/getTxList",
+    $(function () {
+        var data = "pageIndex=1&pageSize=10";
+        $.ajax({
+            url: "http://192.168.0.219:8586/vbcExplorer/tx/getTxList",
+            type: "post",
+            dataType: 'json',
+            data:data,
+            setRequestHeader: {"Content-type": "application/x-www-form-urlencoded"},
+            success: function (result) {
+                console.log(result)
+            },
+            error: function (jqXHR, status) {
+
+            }
+        });
+        console.log("1111")
+    })
+</script>
+
+</body>
+</html>

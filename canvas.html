@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<script src="js/jquery-1.8.3.min.js"></script>
+<body>
+
+<canvas id="myCanvas" width="800" height="550" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+    $(function () {
+        var datas = [12,2,3,5,2,8,18,22,26,10,6,3];
+        recordPaint($("#myCanvas")[0],datas);
+
+        function recordPaint(Elem,Datas){
+            var c=document.getElementById("myCanvas");
+            var ctx=c.getContext("2d");
+            ctx.beginPath();
+            ctx.moveTo(650,10);
+            ctx.lineTo(650,500);
+            ctx.lineTo(10,500);
+            ctx.strokeStyle="green";
+            ctx.stroke();
+
+            const WIDTH = Elem.width;
+            const HEIGHT = Elem.height;
+
+            var padding = 20;//初始化内边距
+            var paddingLeft = 10;//至少大于绘制文字的宽度
+            var paddingBottom = 30;//至少大于绘制文字的高度
+            // 4. 定义绘制坐标轴的关键点的坐标值
+            var axisY = {// y轴的起点坐标值
+                x : paddingLeft,
+                y : padding
+            };
+            console.log(axisY);
+            var origin = {// 原点坐标值(x轴与y轴相交点)
+                x : paddingLeft,
+                y : HEIGHT - paddingBottom
+            };
+            console.log(origin);
+            var axisX = {
+                x :WIDTH ,
+                y : HEIGHT - paddingBottom
+            };
+
+
+            var pointsX = [];
+
+            // 7. 绘制坐标轴的刻度(x轴的月份和y轴的金额)
+            // x轴的月份
+            var month = {
+                x : 10,
+                y : 520
+            };
+
+            for(var i=1;i<=12;i++){
+                pointsX[pointsX.length] = month.x;
+                // 绘制月份信息
+                ctx.fillText(i+"月",month.x,month.y);
+                // 改变每次绘制的x坐标轴的值
+                month.x += (axisX.x - origin.x)/15;
+            }
+
+        }
+    });
+
+
+
+</script>
+
+</body>
+</html>
